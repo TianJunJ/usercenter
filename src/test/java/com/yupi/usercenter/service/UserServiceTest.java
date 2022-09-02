@@ -1,6 +1,5 @@
 package com.yupi.usercenter.service;
 import java.security.NoSuchAlgorithmException;
-import java.util.Date;
 
 import com.yupi.usercenter.model.domain.User;
 import org.junit.jupiter.api.Assertions;
@@ -45,6 +44,8 @@ class UserServiceTest {
 
     @Test
     void userRegister() throws NoSuchAlgorithmException {
+        //完整的单元测试
+
         String userAccount="yupi";
         String userPassword="";
         String checkPassword="123456";
