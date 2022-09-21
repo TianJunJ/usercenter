@@ -9,9 +9,9 @@ spring:
     password: 123456
   #失效时间
   session:
-    timeout: 86400
+    timeout: 864000
 server:
-  port: 8080
+  port: 8087
   servlet:
     context-path: /api
 mybatis-plus:
