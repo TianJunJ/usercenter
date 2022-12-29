@@ -9,6 +9,9 @@ import lombok.Data;
 /**
  * 
  * @TableName user
+ * 此处的内容一定要与数据库中的内容一致，一一对应
+ * 最终从数据库查询的数值，会被赋值到该对象中
+ * 使用Mybatisx插件自动生成
  */
 @TableName(value ="user")
 @Data

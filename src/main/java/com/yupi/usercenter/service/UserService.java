@@ -11,13 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 * @createDate 2022-09-01 09:25:51
 */
 
-/*
-用户服务
+/**
+ *用户服务
  */
 
 public interface UserService extends IService<User> {
-
-
 
 
     /**
@@ -36,6 +34,8 @@ public interface UserService extends IService<User> {
      * @param userPassword 用户密码
      * @param requst
      * @return t脱敏后的用户信息
+     * @des 前端接收到后端命令设置cookie，保存到浏览器。后端拿到前端传回的cookie，找到对应的session，后端从session中找到
+     * 该session存储的信息
      */
     User userLogin(String userAccount, String userPassword , HttpServletRequest requst);
 

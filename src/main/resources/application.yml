@@ -3,23 +3,27 @@ spring:
     name: user-center-backend
   # DataSource Config
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    #url 记得加上库名
     url: jdbc:mysql://localhost:3306/yupi
     username: root
     password: 123456
   #失效时间
   session:
+    #很重要，如果过短可能没办法相应给前端
     timeout: 864000
 server:
-  port: 8087
+  port: 8080
   servlet:
     context-path: /api
+#修改mybatis-plus中驼峰转换，一定要修改，要不然在xml文中属性名称无法对应上
 mybatis-plus:
   configuration:
     map-underscore-to-camel-case: false
   #注意好缩进格式,以下为mybaitis-plus的逻辑删除配置
   global-config:
     db-config:
+      #把逻辑删除的字段名称填进去
       logic-delete-field: isDelete # 全局逻辑删除的实体字段名(since 3.3.0,配置后可以忽略不配置步骤2)
       logic-delete-value: 1 # 逻辑已删除值(默认为 1)
       logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)

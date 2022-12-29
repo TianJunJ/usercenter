@@ -16,6 +16,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 class UserServiceTest {
 
+    //一般使用resource注入
     @Resource
     private  UserService userService;
 
@@ -23,7 +24,7 @@ class UserServiceTest {
     public void testAddUser()
     {
         User user = new User();
-        //下面为自动生成的
+        //下面为自动生成的（generateAllsetter插件）
         //user.setId(0L);
         user.setUsername("dogyupi");
         user.setUserAccount("123");
@@ -42,6 +43,7 @@ class UserServiceTest {
         assertTrue(result);
     }
 
+    //使用了junit的test注解
     @Test
     void userRegister() throws NoSuchAlgorithmException {
         //完整的单元测试

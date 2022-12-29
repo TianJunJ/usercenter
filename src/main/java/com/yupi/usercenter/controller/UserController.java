@@ -21,6 +21,7 @@ import static com.yupi.usercenter.constant.UserConstant.USER_LOGIN_STATE;
 
 /**
  * 控制层封装了所有对外接口
+ * 封装了所有外部请求
  */
 
 @RestController //这个注解可以使得返回类型为JSON。适用于编写 restful风格的api
@@ -71,6 +72,11 @@ public class UserController {
         return userService.userLogin(userAccount, userPassword, request);
     }
 
+    /**
+     * 获取当前用户信息
+     * @param request
+     * @return
+     */
     @GetMapping("/current")
     public User getCurrentUser(HttpServletRequest request) {
         Object userObject = request.getSession().getAttribute(USER_LOGIN_STATE);

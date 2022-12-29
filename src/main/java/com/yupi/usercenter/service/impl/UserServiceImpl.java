@@ -48,7 +48,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
         if(userAccount.length()<4){
             return -1;
         }
-        if(checkPassword.length()<8||checkPassword.length()<8)
+        if(checkPassword.length()!=8)
         {
             return -1;
         }
@@ -154,7 +154,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
         User safetyUser=getSafetyUser(user);
 
 
-        //4.记录用户的登录态
+        //4.记录用户的登录态，cookie已经被封装好了，可以直接被该包读取
+        //把user中不敏感的数据套进另一个User对象中，避免直接传输数据
         requst.getSession().setAttribute(USER_LOGIN_STATE,safetyUser);
 
         return safetyUser;
@@ -174,6 +175,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
             return null;
         }
         User safetyUser = new User();
+        //没有传输password
         safetyUser.setId(user.getId());
         safetyUser.setUsername(user.getUsername());
         safetyUser.setUserAccount(user.getUserAccount());
